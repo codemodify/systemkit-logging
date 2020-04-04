@@ -1,7 +1,6 @@
 package logging
 
 import (
-	"os"
 	"sync"
 )
 
@@ -29,12 +28,4 @@ func SetLogger(logger LoggerImplementation) {
 	defer instanceSync.Unlock()
 
 	instance = logger
-}
-
-type stdoutLogger struct{}
-
-func (thisRef stdoutLogger) Log(logEntry LogEntry) LogEntry {
-	os.Stdout.WriteString(logEntry.Message)
-
-	return logEntry
 }
