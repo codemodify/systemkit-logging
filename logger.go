@@ -5,27 +5,28 @@ import (
 )
 
 var instance LoggerImplementation
-var instanceSync sync.RWMutex
+var instanceMutex sync.RWMutex
 
 // Instance -
 func Instance() LoggerImplementation {
-	instanceSync.Lock()
-	defer instanceSync.Unlock()
+	instanceMutex.Lock()
+	defer instanceMutex.Unlock()
 
 	// dump to STDOUT if nothing was set
 	if instance == nil {
-		instanceSync.Unlock()
-		SetLogger(NewDefaultLoggerImplementation(&stdoutLogger{}))
-		instanceSync.Lock()
+		instanceMutex.Unlock()
+		SetLogger(&stdoutLogger{})
+		instanceMutex.Lock()
 	}
 
 	return instance
 }
 
 // SetLogger -
-func SetLogger(logger LoggerImplementation) {
-	instanceSync.Lock()
-	defer instanceSync.Unlock()
+func SetLogger(logger Logger) Logger {
+	instanceMutex.Lock()
+	defer instanceMutex.Unlock()
 
-	instance = logger
+	instance = NewDefaultLoggerImplementation(logger)
+	return logger
 }
