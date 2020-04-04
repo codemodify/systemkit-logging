@@ -1,4 +1,4 @@
-# ![](https://fonts.gstatic.com/s/i/materialiconsoutlined/flare/v4/24px.svg) Logging
+# ![](https://fonts.gstatic.com/s/i/materialicons/bookmarks/v4/24px.svg)  Logging
 [![](https://img.shields.io/github/v/release/codemodify/systemkit-logging?style=flat-square)](https://github.com/codemodify/systemkit-logging/releases/latest)
 ![](https://img.shields.io/github/languages/code-size/codemodify/systemkit-logging?style=flat-square)
 ![](https://img.shields.io/github/last-commit/codemodify/systemkit-logging?style=flat-square)
@@ -18,8 +18,33 @@
 ![](https://img.shields.io/github/forks/codemodify/systemkit-logging?style=flat-square)
 
 
-### The missing robust, flexible, complete and advanced logging framework for Go
-### _See tests for simple and advanced concurrency usages_
+#### The missing robust, flexible, complete and advanced logging framework for Go
+- #### See tests for simple and advanced concurrency usages
+# ![](https://fonts.gstatic.com/s/i/materialicons/bookmarks/v4/24px.svg) Install
+```go
+go get github.com/codemodify/systemkit-logging
+```
+# ![](https://fonts.gstatic.com/s/i/materialicons/bookmarks/v4/24px.svg) API
+
+&nbsp;																| &nbsp;
+---     															| ---
+`KeepOnlyLogs`(logUntil LogType) | 
+`Tracef`(format `string`, v ...`interface`{}) | 
+`Panicf`(format `string`, v ...`interface`{}) | 
+`Fatalf`(format `string`, v ...`interface`{}) | 
+`Errorf`(format `string`, v ...`interface`{}) | 
+`Warningf`(format `string`, v ...`interface`{}) | 
+`Infof`(format `string`, v ...`interface`{}) | 
+`Successf`(format `string`, v ...`interface`{}) | 
+`Debugf`(format `string`, v ...`interface`{}) | 
+`Trace`(v ...`interface`{}) | 
+`Panic`(v ...`interface`{}) | 
+`Fatal`(v ...`interface`{}) | 
+`Error`(v ...`interface`{}) | 
+`Warning`(v ...`interface`{}) | 
+`Info`(v ...`interface`{}) | 
+`Success`(v ...`interface`{}) | 
+`Debug`(v ...`interface`{}) | 
 
 # ![](https://fonts.gstatic.com/s/i/materialicons/bookmarks/v4/24px.svg) How It Works
 
@@ -54,7 +79,3 @@ PIPE	|				| Pipe		| Mixers	| Pipes					| Formatters		| Persisters
 :--		| ---:			| :---		| :---		| :---					| :---				| :---
 DATA	| `LogEntry`	| `Pipe-0`	| `Multi`	| `Pipe-1`, `Pipe-2`	| `Simple`, `AWS`	| `File`, `AWS`
 
-
-
-# ![](https://fonts.gstatic.com/s/i/materialicons/bookmarks/v4/24px.svg) API
-[LogEntry](https://github.com/codemodify/systemkit-logging/blob/master/contracts/contracts.go#L64)
