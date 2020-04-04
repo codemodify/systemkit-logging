@@ -58,3 +58,17 @@ DATA	| `LogEntry`	| `Pipe-0`	| `Multi`	| `Pipe-1`, `Pipe-2`	| `Simple`, `AWS`	| 
 
 # ![](https://fonts.gstatic.com/s/i/materialicons/bookmarks/v4/24px.svg) API
 [LogEntry](https://github.com/codemodify/systemkit-logging/blob/master/contracts/contracts.go#L64)
+
+
+&nbsp;					| Functionality 												| Code Base
+---:					| ---															| ---
+__Test & Examples__ 	| Test and Examples												| [github.com/codemodify/systemkit-logging-tests](https://github.com/codemodify/systemkit-logging-tests)
+__RFC 3339 Nano__ 		| Formats the log as RFC 3339					 				| [github.com/codemodify/systemkit-logging-formatters-timerfc3339nano](https://github.com/codemodify/systemkit-logging-formatters-timerfc3339nano)
+__File__ 				| Logs to file													| [github.com/codemodify/systemkit-logging-persisters-file](https://github.com/codemodify/systemkit-logging-persisters-file)
+__Console__ 			| Logs to console with colors									| [github.com/codemodify/systemkit-logging-persisters-console](https://github.com/codemodify/systemkit-logging-persisters-console)
+__Multi__ 				| Logs to multiple loggers at once								| [github.com/codemodify/systemkit-logging-mixers-multi](https://github.com/codemodify/systemkit-logging-mixers-multi)
+__Async__ 				| Calls a logger without blocking								| [github.com/codemodify/systemkit-logging-mixers-async](https://github.com/codemodify/systemkit-logging-mixers-async)
+__Buffered__ 			| Buffers the log as configured									| [github.com/codemodify/systemkit-logging-mixers-buffered](https://github.com/codemodify/systemkit-logging-mixers-buffered)
+__Windows Event Log__	| Logs to Windows Event Log										| [github.com/codemodify/systemkit-logging-persisters-windowseventlog](https://github.com/codemodify/systemkit-logging-persisters-windowseventlog)
+__WithFields__ 			| Decorates / adds additional logging syntax "..WithFields()"	| [github.com/codemodify/systemkit-logging-extenders-withfields](https://github.com/codemodify/systemkit-logging-extenders-withfields)
+__Advanced__ 			| Advanced logging techniques for complex concurrency 			| [github.com/codemodify/systemkit-logging-advanced](https://github.com/codemodify/systemkit-logging-advanced)
