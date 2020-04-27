@@ -7,7 +7,7 @@ type CoreLogger interface {
 
 // Logger -
 type Logger interface {
-	KeepOnlyLogs(logUntil LogType)
+	KeepOnlyLogs(logUntil LogType) Logger
 
 	Tracef(format string, v ...interface{})
 	Panicf(format string, v ...interface{})

@@ -18,8 +18,9 @@ func NewLoggerImplementation(logger CoreLogger) Logger {
 	}
 }
 
-func (thisRef *loggerImplementation) KeepOnlyLogs(logUntil LogType) {
+func (thisRef *loggerImplementation) KeepOnlyLogs(logUntil LogType) Logger {
 	thisRef.logUntil = logUntil
+	return thisRef
 }
 
 func (thisRef loggerImplementation) Tracef(format string, v ...interface{}) {
