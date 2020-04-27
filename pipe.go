@@ -1,11 +1,11 @@
 package logging
 
 type pipe struct {
-	loggers []Logger
+	loggers []CoreLogger
 }
 
 // NewPipe - returns a pipe
-func NewPipe(loggers []Logger) Logger {
+func NewPipe(loggers []CoreLogger) CoreLogger {
 	return &pipe{
 		loggers: loggers,
 	}

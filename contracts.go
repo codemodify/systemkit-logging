@@ -1,12 +1,12 @@
 package logging
 
-// Logger -
-type Logger interface {
+// CoreLogger -
+type CoreLogger interface {
 	Log(logEntry LogEntry) LogEntry
 }
 
-// LoggerImplementation -
-type LoggerImplementation interface {
+// Logger -
+type Logger interface {
 	KeepOnlyLogs(logUntil LogType)
 
 	Tracef(format string, v ...interface{})

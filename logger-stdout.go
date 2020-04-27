@@ -5,7 +5,12 @@ import "os"
 type stdoutLogger struct{}
 
 func (thisRef stdoutLogger) Log(logEntry LogEntry) LogEntry {
-	os.Stdout.WriteString(logEntry.Message + "\n")
+	os.Stdout.WriteString(logEntry.Message)
 
 	return logEntry
+}
+
+// NewStdoutLogger -
+func NewStdoutLogger() CoreLogger {
+	return &stdoutLogger{}
 }

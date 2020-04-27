@@ -5,24 +5,24 @@ import (
 	"time"
 )
 
-type defaultLoggerImplementation struct {
-	logger   Logger
+type loggerImplementation struct {
+	logger   CoreLogger
 	logUntil LogType
 }
 
-// NewDefaultLoggerImplementation -
-func NewDefaultLoggerImplementation(logger Logger) LoggerImplementation {
-	return &defaultLoggerImplementation{
+// NewLoggerImplementation -
+func NewLoggerImplementation(logger CoreLogger) Logger {
+	return &loggerImplementation{
 		logger:   logger,
 		logUntil: TypeDebug,
 	}
 }
 
-func (thisRef *defaultLoggerImplementation) KeepOnlyLogs(logUntil LogType) {
+func (thisRef *loggerImplementation) KeepOnlyLogs(logUntil LogType) {
 	thisRef.logUntil = logUntil
 }
 
-func (thisRef defaultLoggerImplementation) Tracef(format string, v ...interface{}) {
+func (thisRef loggerImplementation) Tracef(format string, v ...interface{}) {
 	if canLog(TypeTrace, thisRef.logUntil) {
 		thisRef.logger.Log(LogEntry{
 			Time:    time.Now(),
@@ -32,7 +32,7 @@ func (thisRef defaultLoggerImplementation) Tracef(format string, v ...interface{
 	}
 }
 
-func (thisRef defaultLoggerImplementation) Panicf(format string, v ...interface{}) {
+func (thisRef loggerImplementation) Panicf(format string, v ...interface{}) {
 	if canLog(TypePanic, thisRef.logUntil) {
 		thisRef.logger.Log(LogEntry{
 			Time:    time.Now(),
@@ -42,7 +42,7 @@ func (thisRef defaultLoggerImplementation) Panicf(format string, v ...interface{
 	}
 }
 
-func (thisRef defaultLoggerImplementation) Fatalf(format string, v ...interface{}) {
+func (thisRef loggerImplementation) Fatalf(format string, v ...interface{}) {
 	if canLog(TypeFatal, thisRef.logUntil) {
 		thisRef.logger.Log(LogEntry{
 			Time:    time.Now(),
@@ -52,7 +52,7 @@ func (thisRef defaultLoggerImplementation) Fatalf(format string, v ...interface{
 	}
 }
 
-func (thisRef defaultLoggerImplementation) Errorf(format string, v ...interface{}) {
+func (thisRef loggerImplementation) Errorf(format string, v ...interface{}) {
 	if canLog(TypeError, thisRef.logUntil) {
 		thisRef.logger.Log(LogEntry{
 			Time:    time.Now(),
@@ -62,7 +62,7 @@ func (thisRef defaultLoggerImplementation) Errorf(format string, v ...interface{
 	}
 }
 
-func (thisRef defaultLoggerImplementation) Warningf(format string, v ...interface{}) {
+func (thisRef loggerImplementation) Warningf(format string, v ...interface{}) {
 	if canLog(TypeWarning, thisRef.logUntil) {
 		thisRef.logger.Log(LogEntry{
 			Time:    time.Now(),
@@ -72,7 +72,7 @@ func (thisRef defaultLoggerImplementation) Warningf(format string, v ...interfac
 	}
 }
 
-func (thisRef defaultLoggerImplementation) Infof(format string, v ...interface{}) {
+func (thisRef loggerImplementation) Infof(format string, v ...interface{}) {
 	if canLog(TypeInfo, thisRef.logUntil) {
 		thisRef.logger.Log(LogEntry{
 			Time:    time.Now(),
@@ -82,7 +82,7 @@ func (thisRef defaultLoggerImplementation) Infof(format string, v ...interface{}
 	}
 }
 
-func (thisRef defaultLoggerImplementation) Successf(format string, v ...interface{}) {
+func (thisRef loggerImplementation) Successf(format string, v ...interface{}) {
 	if canLog(TypeSuccess, thisRef.logUntil) {
 		thisRef.logger.Log(LogEntry{
 			Time:    time.Now(),
@@ -92,7 +92,7 @@ func (thisRef defaultLoggerImplementation) Successf(format string, v ...interfac
 	}
 }
 
-func (thisRef defaultLoggerImplementation) Debugf(format string, v ...interface{}) {
+func (thisRef loggerImplementation) Debugf(format string, v ...interface{}) {
 	if canLog(TypeDebug, thisRef.logUntil) {
 		thisRef.logger.Log(LogEntry{
 			Time:    time.Now(),
@@ -102,7 +102,7 @@ func (thisRef defaultLoggerImplementation) Debugf(format string, v ...interface{
 	}
 }
 
-func (thisRef defaultLoggerImplementation) Trace(v ...interface{}) {
+func (thisRef loggerImplementation) Trace(v ...interface{}) {
 	if canLog(TypeTrace, thisRef.logUntil) {
 		thisRef.logger.Log(LogEntry{
 			Time:    time.Now(),
@@ -112,7 +112,7 @@ func (thisRef defaultLoggerImplementation) Trace(v ...interface{}) {
 	}
 }
 
-func (thisRef defaultLoggerImplementation) Panic(v ...interface{}) {
+func (thisRef loggerImplementation) Panic(v ...interface{}) {
 	if canLog(TypePanic, thisRef.logUntil) {
 		thisRef.logger.Log(LogEntry{
 			Time:    time.Now(),
@@ -122,7 +122,7 @@ func (thisRef defaultLoggerImplementation) Panic(v ...interface{}) {
 	}
 }
 
-func (thisRef defaultLoggerImplementation) Fatal(v ...interface{}) {
+func (thisRef loggerImplementation) Fatal(v ...interface{}) {
 	if canLog(TypeFatal, thisRef.logUntil) {
 		thisRef.logger.Log(LogEntry{
 			Time:    time.Now(),
@@ -132,7 +132,7 @@ func (thisRef defaultLoggerImplementation) Fatal(v ...interface{}) {
 	}
 }
 
-func (thisRef defaultLoggerImplementation) Error(v ...interface{}) {
+func (thisRef loggerImplementation) Error(v ...interface{}) {
 	if canLog(TypeError, thisRef.logUntil) {
 		thisRef.logger.Log(LogEntry{
 			Time:    time.Now(),
@@ -142,7 +142,7 @@ func (thisRef defaultLoggerImplementation) Error(v ...interface{}) {
 	}
 }
 
-func (thisRef defaultLoggerImplementation) Warning(v ...interface{}) {
+func (thisRef loggerImplementation) Warning(v ...interface{}) {
 	if canLog(TypeWarning, thisRef.logUntil) {
 		thisRef.logger.Log(LogEntry{
 			Time:    time.Now(),
@@ -152,7 +152,7 @@ func (thisRef defaultLoggerImplementation) Warning(v ...interface{}) {
 	}
 }
 
-func (thisRef defaultLoggerImplementation) Info(v ...interface{}) {
+func (thisRef loggerImplementation) Info(v ...interface{}) {
 	if canLog(TypeInfo, thisRef.logUntil) {
 		thisRef.logger.Log(LogEntry{
 			Time:    time.Now(),
@@ -162,7 +162,7 @@ func (thisRef defaultLoggerImplementation) Info(v ...interface{}) {
 	}
 }
 
-func (thisRef defaultLoggerImplementation) Success(v ...interface{}) {
+func (thisRef loggerImplementation) Success(v ...interface{}) {
 	if canLog(TypeSuccess, thisRef.logUntil) {
 		thisRef.logger.Log(LogEntry{
 			Time:    time.Now(),
@@ -172,7 +172,7 @@ func (thisRef defaultLoggerImplementation) Success(v ...interface{}) {
 	}
 }
 
-func (thisRef defaultLoggerImplementation) Debug(v ...interface{}) {
+func (thisRef loggerImplementation) Debug(v ...interface{}) {
 	if canLog(TypeDebug, thisRef.logUntil) {
 		thisRef.logger.Log(LogEntry{
 			Time:    time.Now(),

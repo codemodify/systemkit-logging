@@ -1,7 +1,7 @@
 package logging
 
 // NewEmptyLogger - returns a logger that does nothing
-func NewEmptyLogger() Logger {
+func NewEmptyLogger() CoreLogger {
 	return &emptyLogger{}
 }
 
