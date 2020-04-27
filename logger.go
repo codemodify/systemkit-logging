@@ -3,7 +3,7 @@ package logging
 var instance Logger
 
 func init() {
-	SetLogger(NewStdoutLogger()) // deafult dump to STDOUT
+	SetLogger(NewEmptyLogger())
 }
 
 // SetLogger -
