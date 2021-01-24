@@ -1,3 +1,3 @@
 module github.com/codemodify/systemkit-logging
 
-go 1.13
+go 1.15
